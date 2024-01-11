@@ -110,3 +110,12 @@ a{
     background-color: rgb(204, 221, 238);
     border-color: transparent;
 }
+/* ====================
+   Media
+==================== */
+@media screen and (min-width: 500px) and (max-width: 799px){
+    .grid-container{
+        grid-template-columns: repeat(2, auto);
+        column-gap: 30px;
+    }
+}
