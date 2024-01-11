@@ -147,3 +147,32 @@ a{
         column-gap: 30px;
     }
 }
+
+@media screen and (min-width: 1200px){
+    /*header*/
+    .nav-container a:last-child{
+        margin-right: 50px;
+    }
+    .nav-container a:not(:first-child):hover{
+        background-color: transparent;
+        color: rgb(136, 153, 170);
+    }
+    .nav-trigger{
+        display: none;
+    }
+    /*fix js-nav-trigger*/
+    .rwd-nav{
+        flex-direction: row;
+    }
+    
+    .hide-nav a:not(:first-child){
+        visibility: visible;
+    }
+    /*section*/
+    .grid-container{
+        width: 1140px;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 555px);
+        column-gap: 30px;
+    }
+}
