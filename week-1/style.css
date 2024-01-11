@@ -114,6 +114,34 @@ a{
    Media
 ==================== */
 @media screen and (min-width: 500px) and (max-width: 799px){
+    /*section*/
+    .grid-container{
+        grid-template-columns: repeat(2, auto);
+        column-gap: 30px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1199px){
+    /*header*/
+    .nav-container a:last-child{
+        margin-right: 50px;
+    }
+    .nav-container a:not(:first-child):hover{
+        background-color: transparent;
+        color: rgb(136, 153, 170);
+    }
+    .nav-trigger{
+        display: none;
+    }
+    /*fix js-nav-trigger*/
+    .rwd-nav{
+        flex-direction: row;
+    }
+    
+    .hide-nav a:not(:first-child){
+        visibility: visible;
+    }
+    /*section*/
     .grid-container{
         grid-template-columns: repeat(2, auto);
         column-gap: 30px;
