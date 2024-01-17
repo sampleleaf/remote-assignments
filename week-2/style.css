@@ -20,7 +20,7 @@ a{
    Header
 ==================== */
 .nav-container{
-    padding: 20px 0;
+    padding: 15px 0;
     display: flex;
     background-color: rgb(238, 238, 238);
 }
@@ -33,23 +33,34 @@ a{
     color: black;
 }
 
-.nav-container a:first-child{
+.nav-container > a:first-child{
     margin-left: 30px;
     margin-right: auto;
     white-space: nowrap;
 }
 
-.nav-container a:not(:first-child){
+.nav-container > div a{
     padding-left: 30px;
+    height: 60px;
 }
 
-.nav-container a:not(:first-child):hover{
-    background-color: rgb(204, 221, 238);
+.nav-cross{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    position: fixed;
+    font-size: 25px;
+    top: 0;
+    right: 0;
+    font-family: serif;
+    z-index: 1;
 }
 
 .nav-trigger{
     position: absolute;
-    top: 22px;
+    top: 17px;
     right: 50px;
     cursor: pointer;
 }
@@ -66,11 +77,18 @@ a{
 
 /*for js-nav-trigger*/
 .rwd-nav{
-    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 55%;
+    background-color: white;
+    box-shadow: -0.5px 0px 3px grey;
+    z-index: 1;
 }
 
-.hide-nav a:not(:first-child){
-    visibility: hidden;
+.hide-nav a, .hide-nav div{
+    display: none;
 }
 
 /* ====================
@@ -114,7 +132,7 @@ a{
 /* ====================
    Media
 ==================== */
-@media screen and (min-width: 500px) and (max-width: 799px){
+@media screen and (min-width: 500px){
     /*section*/
     .grid-container{
         grid-template-columns: repeat(2, auto);
@@ -122,53 +140,48 @@ a{
     }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1199px){
+@media screen and (min-width: 800px){
     /*header*/
-    .nav-container a:last-child{
+    .nav-container > div{
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+    }
+    .nav-container > div a{
+        height: 30px;
+    }
+    .nav-container > div a:last-child{
         margin-right: 50px;
     }
-    .nav-container a:not(:first-child):hover{
+    .nav-container > div a:hover{
         background-color: transparent;
         color: rgb(136, 153, 170);
+    }
+    /*fix js-nav-trigger*/
+    .nav-cross{
+        display: none;
     }
     .nav-trigger{
         display: none;
     }
-    /*fix js-nav-trigger*/
+    .hide-nav a{
+        display: grid;
+        align-items: center;
+    }
     .rwd-nav{
-        flex-direction: row;
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
     }
-    
-    .hide-nav a:not(:first-child){
-        visibility: visible;
-    }
-    /*section*/
-    .grid-container{
-        grid-template-columns: repeat(2, auto);
-        column-gap: 30px;
+    .rwd-nav a{
+        position: static;
+        display: grid;
+        align-items: center;
     }
 }
 
 @media screen and (min-width: 1200px){
-    /*header*/
-    .nav-container a:last-child{
-        margin-right: 50px;
-    }
-    .nav-container a:not(:first-child):hover{
-        background-color: transparent;
-        color: rgb(136, 153, 170);
-    }
-    .nav-trigger{
-        display: none;
-    }
-    /*fix js-nav-trigger*/
-    .rwd-nav{
-        flex-direction: row;
-    }
-    
-    .hide-nav a:not(:first-child){
-        visibility: visible;
-    }
     /*section*/
     .grid-container{
         width: 1140px;
