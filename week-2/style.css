@@ -92,7 +92,7 @@ a{
 }
 
 /* ====================
-   Section
+   Section & hiddenSection
 ==================== */
 .article-title{
     text-align: center;
@@ -115,20 +115,29 @@ a{
     text-align: center;
     margin: 10px;
 }
+
 /* ====================
-   Footer
+   divForButton
 ==================== */
-.footer-button {
-    margin: 40px auto;
+.showContent{
+    margin: 30px auto;
     text-align: center;
 }
 
-.footer-button button{
+.showContent button{
     cursor: pointer;
     padding: 10px;
     background-color: rgb(204, 221, 238);
     border-color: transparent;
 }
+
+/* ====================
+   footer
+==================== */
+footer{
+    margin-bottom: 30px;
+}
+
 /* ====================
    Media
 ==================== */
