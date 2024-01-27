@@ -1,13 +1,21 @@
-const express = require('express');
-const app = express();
 const port = 3000;
-const path = require('path')
 
+const express = require('express');
+const cookieParser = require('cookie-parser')
+const path = require('path')
+const ejs = require('ejs');
+
+const app = express();
+
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '/public')))
 /*
     瀏覽器有時候會自動在網址末尾加"/"
     導致無法訪問http://localhost:3000/sum.html
 */
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '/views'))
 
 app.get('/', (req, res) => {
     res.send('Hello, My Server!')
@@ -28,6 +36,25 @@ app.get('/getData', (req, res) => {
         }
         res.send(`${sum}`)
     }
+})
+
+app.get('/myName', (req, res) => {
+    let {userName} = req.cookies
+    if(userName){
+        res.render('myName', {userName})   
+    }else{
+        res.redirect('/trackName')
+    }
+})
+
+app.get('/trackName', (req, res) => {
+    const {name} = req.query
+    res.cookie('userName', name)
+    if(name){
+        res.redirect('/myName')
+    }else{
+        res.render('trackName')
+    } 
 })
 
 app.listen(port, () => {
