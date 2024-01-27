@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require('path')
+
+app.use(express.static(path.join(__dirname, '/public')))
+/*
+    瀏覽器有時候會自動在網址末尾加"/"
+    導致無法訪問http://localhost:3000/sum.html
+*/
 
 app.get('/', (req, res) => {
     res.send('Hello, My Server!')
